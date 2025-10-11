@@ -3,7 +3,7 @@ const express = require("express");
 const Item = require("../models/item");
 const auth = require("../middleware/authMiddleware");
 const mongoose = require("mongoose");
-const { upload } = require("./config/cloudinary"); // ✅ Cloudinary storage
+const { upload } = require("../config/cloudinary"); // Cloudinary storage
 
 const router = express.Router();
 
