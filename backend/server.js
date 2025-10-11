@@ -47,10 +47,15 @@ io.on("connection", (socket) => {
   // Handle message send event
   socket.on("sendMessage", (message) => {
     console.log("📨 New message:", message);
-    const recipientSocket = onlineUsers.get(message.recipientId);
-    if (recipientSocket) {
-      io.to(recipientSocket).emit("receiveMessage", message);
-    }
+    const recipientSocket = onlineUsers.get(message.recipient._id);
+if (recipientSocket) {
+  io.to(recipientSocket).emit("receiveMessage", message);
+}
+const senderSocket = onlineUsers.get(message.sender._id);
+if (senderSocket) {
+  io.to(senderSocket).emit("receiveMessage", message);
+}
+
   });
 
   // Handle disconnect
