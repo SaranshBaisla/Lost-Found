@@ -7,10 +7,7 @@ const itemSchema = new mongoose.Schema({
   status: { type: String, default: "Lost" }, // Lost, Found, Returned
   location: String,
   date: { type: Date, default: Date.now },
-  imageUrl: {
-    url: String,
-    filename : String
-  },
+  imageUrl: String,
   postedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 });
 
