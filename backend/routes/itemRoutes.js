@@ -1,30 +1,18 @@
 // routes/itemRoutes.js
 const express = require("express");
-const multer = require("multer");
-const path = require("path");
 const Item = require("../models/item");
 const auth = require("../middleware/authMiddleware");
 const mongoose = require("mongoose");
+const { upload } = require("./config/cloudinary"); // ✅ Cloudinary storage
 
 const router = express.Router();
-
-// File upload setup
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "uploads/"),
-  filename: (req, file, cb) => {
-    const uniqueName = Date.now() + path.extname(file.originalname);
-    cb(null, uniqueName);
-  }
-});
-
-const upload = multer({ storage });
 
 // ----------------- Create Item -----------------
 router.post("/", auth, upload.single("image"), async (req, res) => {
   try {
     const newItem = new Item({
       ...req.body,
-      imageUrl: req.file ? `uploads/${req.file.filename}` : null, // ✅ fixed (no leading /)
+      imageUrl: req.file ? req.file.path : null, // Cloudinary URL
       postedBy: req.user.id,
     });
 
@@ -75,7 +63,7 @@ router.put("/:id", auth, upload.single("image"), async (req, res) => {
     item.location = req.body.location || item.location;
 
     if (req.file) {
-      item.imageUrl = `uploads/${req.file.filename}`; // ✅ fixed (same as create)
+      item.imageUrl = req.file.path; // Cloudinary URL
     }
 
     await item.save();
@@ -95,10 +83,6 @@ router.delete("/:id", auth, async (req, res) => {
 
     const item = await Item.findById(req.params.id);
     if (!item) return res.status(404).json({ message: "Item not found" });
-
-    if (!item.postedBy) {
-      return res.status(400).json({ message: "Item owner information missing" });
-    }
 
     const userId = req.user.id || req.user._id;
     if (item.postedBy.toString() !== userId.toString()) {

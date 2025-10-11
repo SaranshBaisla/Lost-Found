@@ -25,6 +25,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.2",
     "multer": "^2.0.2",
+    "multer-storage-cloudinary": "^4.0.0",
     "react-router-dom": "^7.9.3",
     "socket.io": "^4.8.1"
   }
