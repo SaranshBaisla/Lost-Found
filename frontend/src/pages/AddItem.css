@@ -1,0 +1,33 @@
+/* Notification styling */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: slideIn 0.5s ease, fadeOut 0.5s ease 2.5s forwards;
+  z-index: 9999;
+}
+
+.notification.success {
+  background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.notification.error {
+  background: linear-gradient(135deg, #dc3545, #b02a37);
+}
+
+/* Slide in from bottom */
+@keyframes slideIn {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Fade out */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

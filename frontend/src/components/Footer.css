@@ -1,0 +1,83 @@
+.footer {
+  background: linear-gradient(120deg, #111, #222, #333, #111);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #fff; /* match hero section text */
+  text-align: center;
+  padding: 20px 10px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px 25px 0px 0px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+  animation: rotateGradient 25s linear infinite;
+  pointer-events: none;
+}
+
+.f-info {
+  margin: 0;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.footer a {
+  color: #fff; /* match hero accent color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: #b1b2b2;
+  transition: all 0.3 ease;
+}
+
+/* Animations (same as hero section) */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes rotateGradient {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-link {
+  color: #fff;
+  margin: 0 8px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}

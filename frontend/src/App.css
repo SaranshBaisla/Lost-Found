@@ -1,0 +1,21 @@
+:root {
+  --brand: #0d6efd;
+}
+
+body {
+  background: #f8f9fa;
+  color: #212529;
+}
+
+.app-title {
+  color: var(--brand);
+}
+
+.container {
+  max-width: 1000px;
+}
+
+/* small card tweak */
+.card .card-body p {
+  margin-bottom: 0;
+}

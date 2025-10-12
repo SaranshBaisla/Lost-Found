@@ -1,0 +1,397 @@
+/* ===================== Navbar Wrapper ===================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* ===================== Logo ===================== */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.navbar-logo img {
+  height: 55px;
+  transition: transform 0.25s ease, filter 0.3s ease;
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.navbar-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 0.5px;
+}
+
+/* ===================== Search Bar ===================== */
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 28px;
+  transition: all 0.3s ease;
+  flex:1;
+  max-width: 400px;
+
+}
+
+.search-form:focus-within {
+  box-shadow: 0 8px 30px #222;
+ 
+}
+
+.search-form input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid black;
+  border-radius: 28px;
+  outline: none;
+  font-size: 0.95rem;
+  background: transparent;
+  color: #111;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.search-form input::placeholder {
+  color: #888;
+  font-weight: 500;
+}
+
+.search-form button {
+  border: none;
+  background-color: #222;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #414141;
+  transform: translateY(-1px);
+}
+
+/* ===================== Nav Links ===================== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-link svg {
+  stroke: #222;
+  transition: stroke 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #bfcef6;
+  transform: translateY(-2px);
+  border-radius: 10px;
+  padding: 6px 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover svg {
+  stroke: #084298;
+}
+
+/* ===================== User Menu ===================== */
+.user-menu-button {
+  background: #f6f6f6;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  color: #111;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.user-menu-button:hover {
+  background: #ebebeb;
+  transform: translateY(-1px);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e63946;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 40px;
+  min-width: 220px;
+  background: linear-gradient(135deg, #7f1d1d, #b91c1c, #dc2626);
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  animation: dropdownFade 0.25s ease;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  color: #111;
+  z-index: 999;
+}
+
+/* Dropdown animation */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Each item inside dropdown */
+.user-dropdown a,
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 18px;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect for items */
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+/* Divider line */
+.user-dropdown hr {
+  margin: 6px 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Logout button distinct style */
+.user-dropdown button.logout-btn {
+  background: rgba(255, 0, 0, 0.15);
+  color: #ffb4b4;
+  font-weight: 600;
+}
+
+.user-dropdown button.logout-btn:hover {
+  background: rgba(255, 0, 0, 0.25);
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* Little pop shadow when opening */
+.user-dropdown:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background-color: #f6f6f6;
+}
+
+.user-avatar-large {
+  width: 40px;
+  height: 40px;
+  background-color: #e63946;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name-large {
+  font-weight: 600;
+}
+
+.user-status {
+  font-size: 0.85rem;
+  color: #4a4a4a;
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  color: #111;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: #f0f4ff;
+  transform: translateX(2px);
+}
+
+.signout-item {
+  color: #e63946;
+  
+}
+
+.signout-item:hover {
+  background: rgba(230, 57, 70, 0.1);
+  transform: translateX(2px);
+}
+
+/* ===================== Hamburger (Mobile) ===================== */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #111;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger div.active:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger div.active:nth-child(2) {
+  opacity: 0;
+}
+.hamburger div.active:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===================== Mobile Menu ===================== */
+.mobile-menu {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-top: 1px solid #e5e5e5;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  animation: dropdownFade 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-weight: 500;
+  color: #111;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.mobile-link:hover {
+  background-color: #f0f4ff;
+  transform: translateY(-1px);
+}
+
+.mobile-divider {
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 12px 0;
+}
+
+.signout-link {
+  color: #e63946;
+}
+
+
+.arrow-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px; /* space between text and arrow */
+  transition: transform 0.3s ease;
+}
+
+/* When the menu is open, rotate the arrow */
+.arrow-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Optional: subtle hover animation */
+button:hover .arrow-icon {
+  transform: translateY(2px);
+}
