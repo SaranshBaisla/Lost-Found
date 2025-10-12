@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import io from "socket.io-client";
 import api from "../utils/api";
-import "./InBox.css";
+import "./Inbox.css";
 
 // Use your deployed backend
 const socket = io("https://lost-found-mogm.onrender.com");
