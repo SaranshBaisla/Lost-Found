@@ -3,8 +3,11 @@ import io from "socket.io-client";
 import api from "../utils/api";
 import "./Inbox.css";
 
-// Use your deployed backend
-const socket = io("https://lost-found-mogm.onrender.com");
+// Use your deployed backend with WebSocket only (no polling)
+const socket = io("https://lost-found-mogm.onrender.com", {
+  transports: ['websocket'],  // Force WebSocket only
+  upgrade: false              // Don't try to upgrade from polling
+});
 
 export default function Inbox() {
   const [conversations, setConversations] = useState([]);
